@@ -49,6 +49,6 @@ PRO TAB_FOM, nSim=nSim, Protocol=Protocol
     FOM_string[3:4,2:*] = strcompress(FOM[*,*,1],/remove_all)
 
     print, FOM_string
-    write_csv, SIM_PATH() + 'FoM_'+ strcompress(protocol,/remove_all) +'.csv', FoM_string
+    write_csv, SIM_PATH() + 'FoM_'+ strcompress(regime,/remove_all) +'.csv', FoM_string
 
 END

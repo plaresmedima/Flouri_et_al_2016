@@ -87,9 +87,14 @@ FUNCTION LLS_2CFM,  t, ct, ca, FIT=fit, WEIGHTS=w
     prod = X[0]
     sum = X[1]
     det = sum^2 - 4*prod
-    if det LE 0 then root=0 ELSE root = sqrt(det)
-    TP = (sum-root)/(2*prod)
-    TE = (sum+root)/(2*prod)
+    if det LE 0 then begin
+        TP = 2/sum
+        TE = 2/sum
+    endif else begin
+        root = sqrt(det)
+        TP = (sum-root)/(2*prod)
+        TE = (sum+root)/(2*prod)
+    endelse
 
     PS = FP*(TT-TP)/TE
 
