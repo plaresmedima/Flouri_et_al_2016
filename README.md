@@ -3,7 +3,7 @@
 Description
 -----------
 
-Simulation code for anonymised manuscript submitted to Magn Reson Med 2015, with title "Fitting the two-compartment model in DCE-MRI by linear inversion". This repository contains the IDL code to reproduce the results, figures and tables in the manuscript. 
+Simulation code for anonymised manuscript submitted to Magn Reson Med 2015 (see preprint "Linear_2CM.pdf"). This repository contains the IDL code to reproduce the results, figures and tables in the manuscript. 
 
 To reproduce the figures and tables
 -----------------------------------
