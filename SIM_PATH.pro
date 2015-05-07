@@ -32,7 +32,7 @@
 ;
 ;IDL> path =SIM_PATH()
 ;IDL> print, path
-;C:\
+;C:\Users\steven\Documents\GitHub\Linear-2CM\output
 
 
 ;-----------------------------------------------------------------------------------
@@ -58,6 +58,6 @@
 FUNCTION SIM_PATH
 
 
-   RETURN, 'C:\'
+   RETURN, 'C:\Users\steven\Documents\GitHub\Linear-2CM\output\'
 
 END
