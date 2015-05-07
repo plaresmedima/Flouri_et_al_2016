@@ -8,7 +8,7 @@
 ;  recent patient study on renal artery stenosis [Lim et al AJP 2013].
 ;  Patient cases were selected by identifying the kidneys
 ;  corresponding to the 10th and 90th percentiles in TE and VP
-;All values are displayed in table 1 [submitted paper]
+;All values are displayed in Table 1 [submitted paper]
 ;
 ;
 ;Syntax
@@ -32,7 +32,7 @@
 ;
 ;parameters
 ;    A 4-element array which contains
-;    the values [FP, V, E, xE] for the required tissue
+;    the values [FP, TP, PS, TE] for the required tissue
 ;
 ;
 ;Example
@@ -41,11 +41,11 @@
 ;Display the parameters of Patient 1:
 ;
 ;IDL> print, PARS(1)
-;    0.017894737      0.41000000      0.13148789      0.41463415
+;      0.017894737       9.5000000    0.0023529412       102.00000
 
 
-;---------------------------------------------------------------------------
-;    Copyright (C) 2014 *Anonimised*
+;-------------------------------------------------------------------------------
+;    Copyright (C) 2015, Dimitra Flouri and Steven Sourbron
 ;
 ;    This program is free software; you can redistribute it and/or modify
 ;    it under the terms of the GNU General Public License as published by
@@ -60,7 +60,8 @@
 ;    You should have received a copy of the GNU General Public License along
 ;    with this program; if not, write to the Free Software Foundation, Inc.,
 ;    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-;---------------------------------------------------------------------------
+;-------------------------------------------------------------------------------
+
 
 
 FUNCTION PARS, tissue

@@ -1,10 +1,10 @@
 ;Description
 ;-----------
 ;
-;Calculates the parameters of the 2CFM via a
+;Calculates the parameters of the 2CXM via a
 ;linear least squares method.
 ;
-;For more details see *Anonymous* et al (submitted)
+;For more details see Flouri et al [submitted paper]
 ;
 ;
 ;Syntax
@@ -30,7 +30,7 @@
 ;Returns
 ;-------
 ;
-;pars: 4-element floating point array with the values [TP, TE, VP, VE]
+;pars: 4-element floating point array with the values [FP, TP, PS, TE]
 ;
 ;
 ;Example
@@ -38,15 +38,16 @@
 ;
 ;Reconstruct 2CFM parameters for patient 3
 ;
-;IDL> ct = EXACT_CONC(3, '2CXM', TIME=t, AIF=ca)
+;IDL> ct = EXACT_CONC(Model='2CXM', Tacq=300.0, TIME=t, AIF=ca)
+;IDL> ct = ct[3,*]
 ;IDL> print, 'Exact parameters: ', PARS(3)
-;Exact parameters:        7.2700000       117.00000      0.19000000      0.26000000
+;Exact parameters:          0.026134801       7.2700000    0.0022222222       117.00000
 ;IDL> print, 'Reconstruction: ', LLS_2CXM(t, ct, ca)
-;Reconstruction:        7.2699549       116.99965      0.18999959      0.26000018
+;Reconstruction:          0.026134912       7.2699532    0.0022222298       116.99967
 ;
 
-;---------------------------------------------------------------------------
-;    Copyright (C) 2014 *Anonimised*
+;----------------------------------------------------------------------------
+;    Copyright (C) 2015, Dimitra Flouri and Steven Sourbron
 ;
 ;    This program is free software; you can redistribute it and/or modify
 ;    it under the terms of the GNU General Public License as published by
@@ -61,7 +62,9 @@
 ;    You should have received a copy of the GNU General Public License along
 ;    with this program; if not, write to the Free Software Foundation, Inc.,
 ;    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-;---------------------------------------------------------------------------
+;----------------------------------------------------------------------------
+
+
 
 FUNCTION LLS_2CXM,  t, ct, ca, FIT=fit, WEIGHTS=w
 

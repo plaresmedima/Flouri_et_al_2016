@@ -1,3 +1,68 @@
+;Description
+;-----------
+;
+;Calculates the FoM's for the LLS and WLLS for a given
+;protocol (1-3) following the formulas in Eqs.[24]
+;and [25] of Flouri et al [submitted paper].
+;
+;
+;Syntax
+;------
+;
+;TAB_FOM, nSim=nSim, Protocol=Protocol
+;
+;
+;Arguments
+;---------
+;
+;None
+;
+;
+;Keywords
+;--------
+;
+;nSim: the number of simulations to perform
+;Protocol: number from 1 to 3 where
+;      1 = Protocol 1
+;      2 = Protocol 2
+;      3 = Protocol 3
+;
+;
+;Example
+;-------
+;
+;Calculates FoM's for LLS and WLLS for protocol 1
+;
+;IDL> TAB_FOM, nSim=10^2D, Protocol=1
+;      LLS      LLS      WLLS      WLLS
+;   Accuracy Precision Accuracy Precision
+;FP -22.6248  10.7943  -2.04857 -10.0943
+;TP -68.7394 -127.198  -4.90772 -55.5957
+;PS -44.4629  94.7213  -15.3755  35.3905
+;TE -19.7596  9624.04  -1.68557  10955.6
+
+
+
+;---------------------------------------------------------------------------
+;    Copyright (C) 2015, Dimitra Flouri and Steven Sourbron
+;
+;    This program is free software; you can redistribute it and/or modify
+;    it under the terms of the GNU General Public License as published by
+;    the Free Software Foundation; either version 2 of the License, or
+;    (at your option) any later version.
+;
+;    This program is distributed in the hope that it will be useful,
+;    but WITHOUT ANY WARRANTY; without even the implied warranty of
+;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;    GNU General Public License for more details.
+;
+;    You should have received a copy of the GNU General Public License along
+;    with this program; if not, write to the Free Software Foundation, Inc.,
+;    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+;---------------------------------------------------------------------------
+
+
+
 PRO TAB_FOM, nSim=nSim, Protocol=Protocol
 
     if n_elements(nSim) eq 0 then nSim = 1000.  ;Set to 100000 for final results

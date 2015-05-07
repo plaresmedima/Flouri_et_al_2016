@@ -1,9 +1,9 @@
 ;Description
 ;-----------
 ;
-;Calculates the concentration-time curve
-;for a two-compartment filtration model (2CFM)
-;following the formula in Eq. 6 of [submitted paper]
+;Calculates the concentration-time curve for a
+;two-compartment filtration model (2CFM) following
+;the formula in Eq.6 Flouri et al [submitted paper]
 ;
 ;
 ;Syntax
@@ -17,13 +17,19 @@
 ;
 ;X: an array [t, ca] where t are the time points and ca the input function
 ;   t and ca must have the same length
-
-;P: a four element array [F, V, E, xE] of tissue parameters
-
+;
+;P: a four element array [FP, TP, PS, TE] of tissue parameters
+;
 ;C: name variable which upon return contains the result of the calculation
 ;   has the same length as t and ca
-;;
-;;
+;
+;
+;Keywords
+;--------
+;
+;None
+;
+;
 ;Example
 ;-------
 ;
@@ -32,13 +38,13 @@
 ;IDL> tacq = 180.0 & dt = 0.1
 ;IDL> nt = 1+floor(tacq/dt)
 ;IDL> t = findgen(nt)*dt
-;IDL> CONC_2CFM, [t,AIF(t)], PARS(0), concentrations
+;IDL> CONC_2CFM, [t,AIF(t)], PARS(3), concentrations
 ;IDL> plot, t, AIF(t)
 ;IDL> oplot, t, concentrations
-;
 
-;---------------------------------------------------------------------------
-;    Copyright (C) 2008 *Anonimised*
+
+;----------------------------------------------------------------------------------
+;    Copyright (C) 2015, Dimitra Flouri and Steven Sourbron
 ;
 ;    This program is free software; you can redistribute it and/or modify
 ;    it under the terms of the GNU General Public License as published by
@@ -53,7 +59,7 @@
 ;    You should have received a copy of the GNU General Public License along
 ;    with this program; if not, write to the Free Software Foundation, Inc.,
 ;    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-;---------------------------------------------------------------------------
+;----------------------------------------------------------------------------------
 
 
 PRO CONC_2CFM, X, PARS, CONC

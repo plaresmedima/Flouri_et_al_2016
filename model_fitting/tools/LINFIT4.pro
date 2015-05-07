@@ -1,23 +1,35 @@
 ;Description
 ;-----------
 ;
-;;
+;Calculates the values [a,b,c,d] for the coefficients
+;in Eq.[16] of Flouri et al [submitted paper]
+;
 ;
 ;Syntax
 ;------
 ;
-;
+;coeffs = LINFIT4(v, x, y, z, t, FIT=fit, CHISQ=chisq)
 ;
 ;Arguments
 ;---------
 ;
+;v: system of equations to be solved
+;x, y, z, t: n-element arrays
 ;
-
+;
+;Keywords
+;--------
+;
+;FIT: optional, named variable which returns the best fit to the measured concentrations
+;CHISQ: optional, named variable which returns the value of the summed, squared residuals
+;       for the returned parameter values
+;
+;
 ;Returns
 ;-------
 ;
-;
-;
+;coefficients: A 4-element array which contains
+;              the values [a,b,c,d] for the coefficients of Eq.[16]
 ;Example
 ;-------
 ;
@@ -36,10 +48,10 @@
 ;IDL> oplot, vfit3
 ;IDL> oplot, vfit2
 ;IDL> oplot, vfit1
-
 ;
-;---------------------------------------------------------------------------
-;    Copyright (C) 2014 *Anonimised*
+
+;----------------------------------------------------------------------------------------
+;    Copyright (C) 2015, Dimitra Flouri and Steven Sourbron
 ;
 ;    This program is free software; you can redistribute it and/or modify
 ;    it under the terms of the GNU General Public License as published by
@@ -54,8 +66,7 @@
 ;    You should have received a copy of the GNU General Public License along
 ;    with this program; if not, write to the Free Software Foundation, Inc.,
 ;    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-;---------------------------------------------------------------------------
-
+;-----------------------------------------------------------------------------------------
 
 
 FUNCTION LINFIT4, v, x, y, z, t, FIT=fit, CHISQ=chisq
@@ -104,6 +115,6 @@ FUNCTION LINFIT4, v, x, y, z, t, FIT=fit, CHISQ=chisq
     IF ARG_PRESENT(fit) THEN fit = a*x + b*y + c*z + d*t
     IF ARG_PRESENT(chisq) THEN chisq = TOTAL((v - a*x - b*y - c*z - d*t)^2)
 
-    return, [a,b,c,d]
+    RETURN, [a,b,c,d]
 
 END

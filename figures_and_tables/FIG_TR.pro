@@ -1,3 +1,56 @@
+;Description
+;-----------
+;
+;Creates the plots of the error distribution at fixed CNR but
+;variable TR as shown in Figure 4 of Flouri et al [submitted paper]
+;
+;
+;Syntax
+;------
+;
+;FIG_TR, nSim=nSim
+;
+;
+;Arguments
+;---------
+;
+;None
+;
+;
+;Keywords
+;--------
+;
+;nSim: the number of simulations to perform
+;
+;
+;Example
+;-------
+;Plot the figure for fixed CNR but variable TR at 10^2D runs
+;
+;IDL> FIG_TR, nSim=10^2D
+
+
+
+;-----------------------------------------------------------------------------
+;    Copyright (C) 2015, Dimitra Flouri and Steven Sourbron
+;
+;    This program is free software; you can redistribute it and/or modify
+;    it under the terms of the GNU General Public License as published by
+;    the Free Software Foundation; either version 2 of the License, or
+;    (at your option) any later version.
+;
+;    This program is distributed in the hope that it will be useful,
+;    but WITHOUT ANY WARRANTY; without even the implied warranty of
+;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;    GNU General Public License for more details.
+;
+;    You should have received a copy of the GNU General Public License along
+;    with this program; if not, write to the Free Software Foundation, Inc.,
+;    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+;------------------------------------------------------------------------------
+
+
+
 PRO FIG_TR, nSim=nSim
 
     Device, Decomposed = 0

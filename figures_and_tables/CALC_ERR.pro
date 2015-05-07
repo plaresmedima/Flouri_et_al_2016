@@ -1,3 +1,61 @@
+;Description
+;-----------
+;
+;Calculates the error for each reconstraction of a parameter
+;and the goodness-of-fit as a percentage of the exact value,
+;following the formulas in Eq.[22] and [23] respectively
+;from Flouri et al [submitted paper]
+;
+;For more details see Figure 3 from [submitted paper]
+;
+;Syntax
+;------
+;
+;CALC_ERR, nSim=nSim
+;
+;
+;Arguments
+;---------
+;
+;None
+;
+;
+;Keywords
+;-------
+;
+;nSim: the number of simulations to perform
+;
+;
+;Example
+;-------
+;
+;IDL> CALC_ERR, nSim=10^2D
+;FP: LLS Median Error (%)    -0.497695
+;FP: LLS 90% Confidence Interval (%)     -4.62087      3.79374
+;FP: NLLS Median Error (%)      1.03936
+;FP: NLLS 90% Confidence Interval (%)     -1.52252      3.91198
+
+
+;-----------------------------------------------------------------------------
+;    Copyright (C) 2015, Dimitra Flouri and Steven Sourbron
+;
+;    This program is free software; you can redistribute it and/or modify
+;    it under the terms of the GNU General Public License as published by
+;    the Free Software Foundation; either version 2 of the License, or
+;    (at your option) any later version.
+;
+;    This program is distributed in the hope that it will be useful,
+;    but WITHOUT ANY WARRANTY; without even the implied warranty of
+;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;    GNU General Public License for more details.
+;
+;    You should have received a copy of the GNU General Public License along
+;    with this program; if not, write to the Free Software Foundation, Inc.,
+;    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+;-----------------------------------------------------------------------------
+
+
+
 PRO CALC_ERR, nSim=nSim
 
     DEVICE, Decomposed = 0

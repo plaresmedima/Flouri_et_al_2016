@@ -4,7 +4,7 @@
 ;Calculates the convolution of a given array
 ;with a mono-exponential function by linear interpolation
 ;between the values of the array.
-;Details can be found in the appendix of *Anonimised* et al (submitted).
+;Details can be found in the Appendix of Flouri et al [submitted paper].
 ;
 ;
 ;Syntax
@@ -29,9 +29,9 @@
 ;Returns
 ;-------
 ;
-;f: an arry of the same length as "time",
-;    containing the result of the convolution
-;    at the corresponding times
+;f: an array of the same length as "time",
+;   containing the result of the convolution
+;   at the corresponding times
 ;
 ;
 ;Example
@@ -44,11 +44,10 @@
 ;IDL> t = findgen(nt)*dt
 ;IDL> a = AIF(t)
 ;IDL> plot, t, EXPCONV(20., t, a)
-;IDL> oplot, t, NUMCONV(a, exp(-t/20.)/20., dt), psym=4  ;Check
-;
 
-;---------------------------------------------------------------------------
-;    Copyright (C) 2009 *Anonimised*
+
+;-----------------------------------------------------------------------------
+;    Copyright (C) 2015, Steven Sourbron
 ;
 ;    This program is free software; you can redistribute it and/or modify
 ;    it under the terms of the GNU General Public License as published by
@@ -63,15 +62,15 @@
 ;    You should have received a copy of the GNU General Public License along
 ;    with this program; if not, write to the Free Software Foundation, Inc.,
 ;    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-;---------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
 
 
-function EXPCONV, T, time, a
+FUNCTION EXPCONV, T, time, a
 
-; see appendix of *Anonimised* et al (submitted)
+; see appendix of Flouri et al (submitted)
 ; for details on notations.
 
-    if T EQ 0 then return, a
+    IF T EQ 0 THEN return, a
 
 	n = n_elements(time)
 	f = dblarr(n)
@@ -84,8 +83,8 @@ function EXPCONV, T, time, a
 
 	add = a[0:n-2]*E0 + da*E1
 
-	for i=0L,n-2 do f[i+1] = E[i]*f[i] + add[i]
+	FOR i=0L,n-2 DO f[i+1] = E[i]*f[i] + add[i]
 
-    return, f
+    RETURN, f
 
-end
+END

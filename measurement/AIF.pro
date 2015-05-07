@@ -14,10 +14,16 @@
 ;
 ;
 ;Arguments
-;--------
+;---------
 ;
 ;t: an array of time points, in seconds
 ;   where the function values are to be calculated
+;
+;
+;Keywords
+;--------
+;
+;None
 ;
 ;
 ;Returns
@@ -37,10 +43,10 @@
 ;IDL> nt = 1+floor(tacq/dt)
 ;IDL> t = findgen(nt)*dt
 ;IDL> plot, t, AIF(t)
-;
 
-;---------------------------------------------------------------------------
-;    Copyright (C) 2010 *Anonimised*
+
+;-----------------------------------------------------------------------------
+;    Copyright (C) 2015, Steven Sourbron
 ;
 ;    This program is free software; you can redistribute it and/or modify
 ;    it under the terms of the GNU General Public License as published by
@@ -55,11 +61,11 @@
 ;    You should have received a copy of the GNU General Public License along
 ;    with this program; if not, write to the Free Software Foundation, Inc.,
 ;    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-;---------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
 
 
 
-function AIF, t
+FUNCTION AIF, t
 
 ;   parameter values defined in table 1 (Parker 2006)
 	A1 = 0.809
@@ -73,8 +79,7 @@ function AIF, t
 	s = 38.078
 	tau = 0.483
 
-    ;Eq. 1 (Parker 2006)
-
+;   Eq. 1 (Parker 2006)
 	AIF = exp(-(t/60.-T1)^2/(2*sigma1^2))*A1/(sigma1*sqrt(2*!PI)) $
 	    + exp(-(t/60.-T2)^2/(2*sigma2^2))*A2/(sigma2*sqrt(2*!PI)) $
 	    + alpha*exp(-beta*t/60.)/(1+exp(-s*(t/60.-tau)))
@@ -84,10 +89,10 @@ function AIF, t
 
 ;   baseline shift
 	n0 = total(t LT t0)
-	if n0 gt 0 then begin
+	IF n0 GT 0 THEN BEGIN
 	    AIF = Shift(AIF,n0)
 	    AIF[0:n0-1]=0
-	endif
+	ENDIF
 
-	return, AIF
-end
+	RETURN, AIF
+END
