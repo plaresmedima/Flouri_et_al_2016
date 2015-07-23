@@ -72,7 +72,7 @@ PRO CALC_ERR, nSim=nSim
     FOR i=0L, nSim-1 DO BEGIN
         ;Measure
         p_exact = PARS(tissue[i])
-        msr_ct = MSR_CONC(NPIX=1, TIME=t, AIF=ca, CONC=ct[tissue[i],*], TR=2.0, CNR=500.0, MSR_T=msr_t, MSR_CA=msr_ca)  ;Data (mM)
+        msr_ct = MSR_CONC(NPIX=1, TIME=t, AIF=ca, CONC=ct[tissue[i],*], TR=1.25, CNR=1000.0, MSR_T=msr_t, MSR_CA=msr_ca)  ;Data (mM)
        ;Fit
         Error[0:3,0,i] = 100*(LLS_2CFM(msr_t-msr_t[0], msr_ct, msr_ca, FIT=fit_LLS)-p_exact)/p_exact
         Error[0:3,1,i] = 100*(LLS_2CFM(msr_t-msr_t[0], msr_ct, msr_ca, FIT=fit_WLLS, WEIGHTS=msr_ca)-p_exact)/p_exact

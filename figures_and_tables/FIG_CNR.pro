@@ -75,7 +75,7 @@ PRO FIG_CNR, nSim=nSim
         Error = fltarr(5,3,nSim) ;(5 parameters) x (3 methods)
         FOR i=0L, nSim-1 DO BEGIN
             p_exact = PARS(tissue[i])
-            msr_ct = MSR_CONC(NPIX=1, TIME=t, AIF=ca, CONC=ct[tissue[i],*], TR=2.0, CNR=1/NCR[k], MSR_T=msr_t, MSR_CA=msr_ca)
+            msr_ct = MSR_CONC(NPIX=1, TIME=t, AIF=ca, CONC=ct[tissue[i],*], TR=1.25, CNR=1/NCR[k], MSR_T=msr_t, MSR_CA=msr_ca)
             Error[0:3,0,i] = 100*(LLS_2CFM(msr_t-msr_t[0], msr_ct, msr_ca, FIT=fit_LLS)-p_exact)/p_exact
             Error[0:3,1,i] = 100*(LLS_2CFM(msr_t-msr_t[0], msr_ct, msr_ca, FIT=fit_WLLS, WEIGHTS=msr_ca)-p_exact)/p_exact
             Error[0:3,2,i] = 100*(NLLS_FIT(msr_t-msr_t[0], msr_ct, msr_ca, FIT=fit_NLLS, PARS(0)/2, Model='2CFM')-p_exact)/p_exact

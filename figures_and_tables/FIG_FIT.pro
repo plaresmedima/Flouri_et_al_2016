@@ -58,7 +58,7 @@ PRO FIG_FIT
 
     ;Generate data
     ct = EXACT_CONC(Model='2CFM', Tacq=300.0, TIME=t, AIF=ca) ;Tissue concentration (mM)
-    msr_ct = MSR_CONC(NPIX=1, TIME=t, AIF=ca, CONC=ct[Tissue,*], TR=2.0, CNR=50.0, MSR_T=msr_t, MSR_CA=msr_ca)  ;Data (mM)
+    msr_ct = MSR_CONC(NPIX=1, TIME=t, AIF=ca, CONC=ct[Tissue,*], TR=1.25, CNR=50.0, MSR_T=msr_t, MSR_CA=msr_ca)  ;Data (mM)
 
     ;Fit
     pars_LLS = LLS_2CFM(msr_t-msr_t[0], msr_ct, msr_ca, FIT=fit_LLS)

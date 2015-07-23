@@ -71,9 +71,9 @@ PRO TAB_FOM, nSim=nSim, Protocol=Protocol
     ct = EXACT_CONC(Model='2CFM', Tacq=300.0, TIME=t, AIF=ca)
 
     CASE Protocol OF
-      1: P = {TR: 2.0,  CNR: 50.}
-      2: P = {TR: 10.0, CNR: 500.}
-      3: P = {TR: 2.0, CNR: 500.}
+      1: P = {TR: 1.25,  CNR: 50.}
+      2: P = {TR: 12.5, CNR: 1000.}
+      3: P = {TR: 1.25, CNR: 1000.}
     ENDCASE
 
 

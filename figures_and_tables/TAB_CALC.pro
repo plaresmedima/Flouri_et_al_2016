@@ -59,7 +59,7 @@ PRO TAB_CALC, nSim=nSim
     ;CALCULATE DATA
 
     ct = EXACT_CONC(Model='2CFM', Tacq=300.0, TIME=t, AIF=ca)
-    msr_ct = MSR_CONC(NPIX=nSim, TIME=t, AIF=ca, CONC=ct[0,*], TR=2.0, CNR=50., MSR_T=msr_t, MSR_CA=msr_ca)
+    msr_ct = MSR_CONC(NPIX=nSim, TIME=t, AIF=ca, CONC=ct[0,*], TR=1.25, CNR=50., MSR_T=msr_t, MSR_CA=msr_ca)
 
     ;DETERMINE CALC TIME
 
