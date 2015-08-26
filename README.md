@@ -3,7 +3,7 @@
 Description
 -----------
 
-Simulation code for manuscript submitted to Magn Reson Med 2015. This repository contains the IDL code to reproduce the results, figures and tables in the manuscript, a portable library of core algorithms, and a preprint of the manuscript ( "Linear_2CM.pdf").
+Simulation code for manuscript accepted by Magn Reson Med (26/08/2015). This repository contains the IDL code to reproduce the results, figures and tables in the manuscript, a portable library of core algorithms, and a preprint of the manuscript ( "Linear_2CM.pdf").
 
 To reproduce the figures and tables
 -----------------------------------
